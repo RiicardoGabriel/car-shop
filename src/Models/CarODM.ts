@@ -30,6 +30,16 @@ class CarODM {
     if (!isValidObjectId(_id)) throw Error('Invalid Mongo id');
     return this.model.findById(_id);
   }
+
+  public async update(_id: string, car: ICar): Promise<ICar | null> {
+    console.log(!isValidObjectId(_id));
+    // if (!isValidObjectId(_id)) throw Error('Invalid Mongo id');
+    return this.model.findByIdAndUpdate(
+      { _id },
+      { ...car },
+      { new: true },
+    );
+  }
 }
   
 export default CarODM;
