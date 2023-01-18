@@ -16,6 +16,7 @@ export default class CarController {
   }
 
   public async create() {
+    console.log('oiiiiiiiiiiiiiiii');
     const car: ICar = {
       model: this.req.body.model,
       year: this.req.body.year,
