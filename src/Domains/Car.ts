@@ -11,9 +11,9 @@ class Car extends Vehicle {
     year,
     color,
     buyValue,
+    status,
     doorsQty,
     seatsQty,
-    status,
   }: ICar) {
     super({ id, model, year, color, status, buyValue });
     this.doorsQty = doorsQty;

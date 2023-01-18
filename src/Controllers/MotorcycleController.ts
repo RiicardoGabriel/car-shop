@@ -16,7 +16,6 @@ export default class MotorcycleController {
   }
 
   public async create() {
-    console.log('veioooooooooooooooooooooooooooooooooooooooooooooooo');
     const motorcycle: IMotorcycle = {
       model: this.req.body.model,
       year: this.req.body.year,

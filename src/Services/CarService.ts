@@ -20,23 +20,18 @@ class CarService {
     const carModel = new CarODM();
     const find = await carModel.find();
     const result = find.map((curr) => this.newCarDomain(curr));
-    console.log(result);
     return result;
   };
 
   public getCarById = async (id: string) => {
     const carModel = new CarODM();
-    console.log(id);
-    console.log(carModel);
     const result = await carModel.findById(id);
     return this.newCarDomain(result);
   };
 
   public updateCarById = async (id: string, body: ICar) => {
-    console.log('entrouuuuuuuuuuuuuuu no update');
     const carModel = new CarODM();
     const result = await carModel.update(id, body);
-    console.log(result);
     return this.newCarDomain(result);
   };
 }

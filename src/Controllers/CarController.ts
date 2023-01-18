@@ -16,7 +16,6 @@ export default class CarController {
   }
 
   public async create() {
-    console.log('oiiiiiiiiiiiiiiii');
     const car: ICar = {
       model: this.req.body.model,
       year: this.req.body.year,
@@ -61,7 +60,6 @@ export default class CarController {
       const carId = await this.service.getCarById(id);
       if (!carId) { return this.res.status(404).json({ message: 'Car not found' }); }
       if (carId) {
-        console.log('entrou no update correto');
         const result = await this.service.updateCarById(id, this.req.body);
         return this.res.status(200).json(result);
       }

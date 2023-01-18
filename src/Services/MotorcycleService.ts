@@ -11,8 +11,8 @@ class MotorcycleService {
   }
 
   public newMotorcycle = async (obj: IMotorcycle) => {
-    const carModel = new MotorcycleODM();
-    const result = await carModel.create({ ...obj, status: obj.status || false });
+    const motocycleModel = new MotorcycleODM();
+    const result = await motocycleModel.create({ ...obj, status: obj.status || false });
     return this.newMotorcycleDomain(result);
   };
 }
