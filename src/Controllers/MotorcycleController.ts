@@ -33,4 +33,24 @@ export default class MotorcycleController {
       this.next(error);
     }
   }
+
+  public async getMotorcycle() {
+    try {
+      const result = await this.service.getMotorcycle();
+      return this.res.status(200).json(result);
+    } catch (error) {
+      return this.next;
+    }
+  }
+
+  public async getMotorcycleById() {
+    const { id } = this.req.params;
+    try {
+      const carId = await this.service.getMotorcycleById(id);
+      if (!carId) { return this.res.status(404).json({ message: 'Motorcycle not found' }); }
+      return this.res.status(200).json(carId);
+    } catch (error) {
+      return this.res.status(422).json({ message: 'Invalid mongo id' });
+    }
+  }
 }

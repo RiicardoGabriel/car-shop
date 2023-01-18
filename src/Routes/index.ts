@@ -9,5 +9,9 @@ router.get('/cars/:id', (req, res, next) => new CarController(req, res, next).ge
 router.put('/cars/:id', (req, res, next) => new CarController(req, res, next).updateCarById());
 router.post('/cars', (req, res, next) => new CarController(req, res, next).create());
 router.post('/motorcycles', (req, res, next) => new MotorcycleController(req, res, next).create());
+router.get('/motorcycles', (req, res, next) =>
+  new MotorcycleController(req, res, next).getMotorcycle());
+router.get('/motorcycles/:id', (req, res, next) =>
+  new MotorcycleController(req, res, next).getMotorcycleById());
 
 export default router;

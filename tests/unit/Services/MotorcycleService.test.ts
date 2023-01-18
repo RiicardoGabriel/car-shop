@@ -36,4 +36,25 @@ describe('Deveria cadastrar uma moto', function () {
     expect(result).to.be.deep.equal(outputMotorcycle);
     sinon.restore();
   });
+
+  it('Verifica se é possível encontrar uma moto pelo id', async function () {
+    const output: IMotorcycle = {
+      id: '6348513f34c397abcad040b2',
+      model: 'Honda 600f Hornet',
+      year: 2005,
+      color: 'Yellow',
+      status: true,
+      buyValue: 30.000,
+      category: 'Street',
+      engineCapacity: 600,
+    };
+    const motoOutput: Motorcycle = new Motorcycle(output);
+    sinon.stub(Model, 'findById').resolves(output);
+
+    const service = new MotorcycleService();
+    const result = await service.getMotorcycleById('6348513f34c397abcad040b2');
+
+    expect(result).to.be.deep.equal(motoOutput);
+    sinon.restore();
+  });
 });
